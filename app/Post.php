@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 
 class Post extends Model
 {
+    use Sluggable;
+
     public function category()
     {
         return $this->hasOne(Category::class);
@@ -24,6 +28,15 @@ class Post extends Model
             'post_id',
             'tag_id'
         );
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }
 
