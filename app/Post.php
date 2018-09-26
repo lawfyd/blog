@@ -74,6 +74,16 @@ class Post extends Model
         $this->save();
     }
 
+    public function getImage()
+    {
+        if($this->image == null)
+        {
+            return '/img/no-image/png';
+        }
+
+        return '/uploads/' . $this->image;
+    }
+
     public function setCategory($id)
     {
         if($id == null) return;
