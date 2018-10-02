@@ -19,21 +19,7 @@
             {!! Form::open(['route' => 'categories.store']) !!}
             <div class="box-header with-border">
                 <h3 class="box-title">Добавляем категорию</h3>
-                @if($errors->any())
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                @include('admin.errors')
             </div>
             <div class="box-body">
                 <div class="col-md-6">
