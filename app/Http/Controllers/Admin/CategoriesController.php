@@ -43,4 +43,10 @@ class CategoriesController extends Controller
         $category->update($request->all());
         return redirect()->route('categories.index');
     }
+
+    public function destroy($id)
+    {
+        Category::find($id)->delete();
+        return redirect()->route('categories.index');
+    }
 }
