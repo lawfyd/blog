@@ -67,7 +67,7 @@ class Post extends Model
     {
         if($image == null) return;
 
-        Storage::delete('uploads/' . $this->image);
+        Storage::delete('uploads/' . $this->image); //dell prev img
         $filename = str_random(10) . '.' . $image->extension();
         $image->saveAs('uploads', $filename);
         $this->image = $filename;
