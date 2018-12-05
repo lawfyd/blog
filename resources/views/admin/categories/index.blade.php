@@ -47,7 +47,7 @@
                                 <button onclick="return confirm('Are you sure?')" type="submit" class="delete">
                                     <i class="fa fa-remove"></i>
                                 </button>
-                            {{ Form::close() }}
+                                {{ Form::close() }}
                             </td>
                         </tr>
                     @endforeach
