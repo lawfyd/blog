@@ -87,7 +87,7 @@ class Post extends Model
     {
         if($this->image == null)
         {
-            return '/img/no-image/png';
+            return '/img/no-image.png';
         }
 
         return '/uploads/' . $this->image;
