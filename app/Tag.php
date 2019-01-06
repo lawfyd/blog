@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Post;
 
 class Tag extends Model
 {
@@ -14,7 +15,7 @@ class Tag extends Model
     public function posts()
     {
         return $this->belongsToMany(
-            Tag::class,
+            Post::class,
             'post_tags',
             'tag_id',
             'post_id'
@@ -29,4 +30,12 @@ class Tag extends Model
             ]
         ];
     }
+
+//    public function getPosts($id)
+//    {
+//        $posts = ;
+//        dd($posts);
+//
+//    }
+
 }

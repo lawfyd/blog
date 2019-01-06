@@ -214,7 +214,7 @@ class Post extends Model
 
     public function related()
     {
-        return self::all()->except($this->id);
+        return self::all()->except($this->id); // all but one
     }
 
 }
