@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         $user = User::add($request->all());
         $user->generatePassword($request->get('password'));
-        #test
+
         return redirect('/login');
     }
 
