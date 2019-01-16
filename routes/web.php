@@ -13,6 +13,13 @@
 /*DB::listen(function($query) {
     var_dump($query->sql);
 });*/
+
+Route::group([
+   'middleware' => 'admin'
+], function(){
+
+});
+
 Route::get('/', 'HomeController@index');
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
@@ -23,7 +30,7 @@ Route::get('/login', 'AuthController@loginForm');
 Route::post('/login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'],
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'],
     function (){
         Route::get('/', 'DashboardController@index');
         Route::resource('/categories', 'CategoriesController');
