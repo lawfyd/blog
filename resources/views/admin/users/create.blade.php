@@ -41,6 +41,10 @@
 
                             <p class="help-block">Какое-нибудь уведомление о форматах..</p>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail">Описание</label>
+                            <input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="" value="{{ old('description') }}">
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->

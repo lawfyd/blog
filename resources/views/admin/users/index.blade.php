@@ -36,6 +36,7 @@
                             <th>Имя</th>
                             <th>E-mail</th>
                             <th>Аватар</th>
+                            <th>Описание</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
@@ -48,6 +49,7 @@
                                 <td>
                                     <img src="{{ $user->getImage() }}" alt="" class="img-responsive" width="150">
                                 </td>
+                                <td>{{ $user->description }}</td>
                                 <td><a href="{{ route('users.edit', $user->id) }}" class="fa fa-pencil"></a>
                                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                                     <button onclick="return confirm('Are you sure?')" type="submit" class="delete">
