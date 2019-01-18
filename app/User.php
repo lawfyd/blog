@@ -2,10 +2,13 @@
 
 namespace App;
 
+use CKSource\CKFinder\Image;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
+
 
 class User extends Authenticatable
 {
@@ -76,7 +79,15 @@ class User extends Authenticatable
 
         $this->removeAvatar();
         $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads', $filename);
+        $manager = new ImageManager();
+
+        //resize image with Intervention Image
+        $resImage = $manager->make($image)->resize(109, null, function ($constraint) {
+            $constraint->aspectRatio(); // auto height
+        });
+        $resImage->save("uploads/$filename");
+
+//      $image->storeAs('uploads', $filename, $resImage); //
         $this->avatar = $filename;
         $this->save();
     }
