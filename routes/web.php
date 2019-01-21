@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
+Route::post('/subscribe', 'SubsController@subscribe');
+Route::get('/verify/{token}', 'SubsController@verify');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', 'AuthController@logout');
