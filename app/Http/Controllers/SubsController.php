@@ -15,6 +15,7 @@ class SubsController extends Controller
         ]);
 
         $subs = Subscription::add($request->get('email'));
+        $subs->generateToken();
 
         \Mail::to($subs)->send(new SubscribeEmail($subs));
 
