@@ -78,10 +78,10 @@
                         <!-- checkbox -->
                         <div class="form-group">
                             <label>
-                                {{ Form::checkbox('status', '1', $post->status, ['class'=>'minimal']) }}
+                                {{ Form::checkbox('status', '0', $post->status, ['class'=>'minimal']) }}
                             </label>
                             <label>
-                                Черновик
+                                Опубликовано
                             </label>
                         </div>
                     </div>
