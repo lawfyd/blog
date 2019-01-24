@@ -10,7 +10,17 @@
 
                     <div class="leave-comment mr0"><!--leave comment-->
                         <h3 class="text-uppercase">My profile</h3>
-                        @include('admin.errors')
+                        @foreach($fields as $field)
+                            @if($errors->has($field))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        @endforeach
                         <br>
                         <img src="{{ $user->getImage() }}" alt="" class="profile-image">
                         <form class="form-horizontal contact-form" role="form" method="post" action="/profile"

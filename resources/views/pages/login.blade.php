@@ -9,8 +9,6 @@
 
                     <div class="leave-comment mr0"><!--leave comment-->
                         <h3 class="text-uppercase">Login</h3>
-                        {{--@include('admin.errors')--}}
-
                         @if($errors->has('email') || $errors->has('password'))
                             <div class="alert alert-danger">
                                 <ul>
@@ -19,9 +17,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-
                         @endif
-
                         <br>
                         <form class="form-horizontal contact-form" role="form" method="post" action="/login">
                             {{ csrf_field() }}

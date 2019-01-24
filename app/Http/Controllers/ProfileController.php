@@ -12,7 +12,8 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('pages.profile', compact('user'));
+        $fields = ['name', 'email', 'description', 'password', 'avatar'];
+        return view('pages.profile', compact('user', 'fields'));
     }
 
     public function store(Request $request)

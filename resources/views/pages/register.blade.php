@@ -8,9 +8,7 @@
                 <div class="col-md-8">
 
                     <div class="leave-comment mr0"><!--leave comment-->
-
                         <h3 class="text-uppercase">Register</h3>
-
                         @if($errors->has('email') || $errors->has('password') || $errors->has('name'))
                             <div class="alert alert-danger">
                                 <ul>
@@ -19,7 +17,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-
                         @endif
                         <br>
                         <form class="form-horizontal contact-form" role="form" method="post" action="/register">
