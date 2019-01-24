@@ -9,11 +9,6 @@
                 <div class="col-md-8">
 
                     <div class="leave-comment mr0"><!--leave comment-->
-                        @if(session('status'))
-                              <div class="alert alert-success">
-                                  {{ session('status') }}
-                              </div>
-                        @endif
                         <h3 class="text-uppercase">My profile</h3>
                         @include('admin.errors')
                         <br>
@@ -30,7 +25,13 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="email" class="form-control" id="email" name="email"
-                                           placeholder="Email" value="{{ $user->email }}">
+                                           placeholder="Email" value="{{ $user->email }}" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="description" name="description"
+                                           placeholder="Description" value="{{ $user->description }}">
                                 </div>
                             </div>
                             <div class="form-group">

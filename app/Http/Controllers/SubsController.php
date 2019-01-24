@@ -10,11 +10,14 @@ class SubsController extends Controller
 {
     public function subscribe(Request $request)
     {
+        $message = [
+            'required' => 'The email field is required.'
+        ];
         $this->validate($request, [
-           'email' => 'required|email|unique:subscriptions'
-        ]);
+           'subs-email' => 'required|email|unique:subscriptions,email'
+        ], $message);
 
-        $subs = Subscription::add($request->get('email'));
+        $subs = Subscription::add($request->get('subs-email'));
         $subs->generateToken();
 
         \Mail::to($subs)->send(new SubscribeEmail($subs));

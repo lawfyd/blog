@@ -3,10 +3,21 @@
 
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
-            @include('admin.errors')
+            {{--@include('admin.errors')--}}
+            @if($errors->has('subs-email'))
+
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+            @endif
             <form action="/subscribe" method="post">
                 {{ csrf_field() }}
-                <input type="text" placeholder="Your email address" name="email">
+                <input type="text" placeholder="Your email address" name="subs-email">
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>
