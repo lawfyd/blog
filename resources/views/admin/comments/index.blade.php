@@ -44,11 +44,11 @@
                                     <td>{{ $comment->id }}</td>
                                     <td>{{ $comment->text }}</td>
                                     <td>
-                                    @if($comment->status == 1)
-                                        <a href="/admin/comments/toggle/{{ $comment->id }}" class="fa fa-lock"></a>
-                                    @else
-                                        <a href="/admin/comments/toggle/{{ $comment->id }}" class="fa fa-thumbs-o-up"></a>
-                                    @endif
+                                        @if($comment->status == 1)
+                                            <a href="/admin/comments/toggle/{{ $comment->id }}" class="fa fa-lock"></a>
+                                        @else
+                                            <a href="/admin/comments/toggle/{{ $comment->id }}" class="fa fa-thumbs-o-up"></a>
+                                        @endif
                                     </td>
                                     <td> {!! Form::open(['route' => ['comments.destroy', $comment->id], 'method' => 'delete']) !!}
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="delete">

@@ -51,6 +51,13 @@
                                     <img src="{{ $user->getImage() }}" alt="" class="img-responsive" width="150">
                                 </td>
                                 <td>{{ $user->description }}</td>
+                                <td>
+                                    @if($user->status == 0)
+                                        <a href="/admin/users/toggle/{{ $user->id }}" class="fa fa-lock"></a>
+                                    @else
+                                        <a href="/admin/users/toggle/{{ $user->id }}" class="fa fa-thumbs-o-up"></a>
+                                    @endif
+                                </td>
                                 <td><a href="{{ route('users.edit', $user->id) }}" class="fa fa-pencil"></a>
                                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                                     <button onclick="return confirm('Are you sure?')" type="submit" class="delete">

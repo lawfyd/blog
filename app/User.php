@@ -142,9 +142,9 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function toggleBan($value)
+    public function toggleBan()
     {
-        if($value == null)
+        if($this->status == 0)
         {
             return $this->ban();
         }
