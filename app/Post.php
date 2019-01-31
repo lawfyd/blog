@@ -230,7 +230,7 @@ class Post extends Model
 
     public static function getPopularPosts()
     {
-        return self::orderBy('views', 'desc')->take(3)->get();
+        return self::orderBy('views', 'desc')->where('status', 1)->take(3)->get();
     }
 
     public static function getFeaturedPosts()
@@ -240,7 +240,7 @@ class Post extends Model
 
     public static function getRecentPosts()
     {
-        return self::orderBy('date', 'desc')->take(4)->get();
+        return self::orderBy('date', 'desc')->where('status', 1)->take(4)->get();
     }
 
     public function getComments()

@@ -17,7 +17,7 @@
             @endif
             <form action="/subscribe" method="post">
                 {{ csrf_field() }}
-                <input type="text" placeholder="Your email address" name="subs-email">
+                <input type="email" placeholder="Your email address" name="subs-email">
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>
