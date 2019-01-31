@@ -3,7 +3,7 @@
 
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
-            {{--@include('admin.errors')--}}
+
             @if($errors->has('subs-email'))
 
                         <div class="alert alert-danger">
